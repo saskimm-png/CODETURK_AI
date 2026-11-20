@@ -1,3 +1,4 @@
+
 from __future__ import annotations
 
 from typing import Literal
@@ -17,13 +18,12 @@ class HistoryMessage(BaseModel):
 class ChatRequest(BaseModel):
     message: str = Field(min_length=1, max_length=16000)
     mode: Literal["auto", "chat", "code"] = "auto"
-    history: list[HistoryMessage] = Field(default_factory=list, max_length=20)
+    history: list[HistoryMessage] = Field(
+        default_factory=list,
+        max_length=20
+    )
 
     @field_validator("message")
     @classmethod
     def trim_message(cls, value: str) -> str:
         return value.strip()
-
-
-class LoginRequest(BaseModel):
-    password: str = Field(min_length=1, max_length=512)
