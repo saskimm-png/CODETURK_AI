@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: codeturk
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /api/health
+    envVars:
+      - key: APP_NAME
+        value: CODETURK
+      - key: APP_URL
+        sync: false
+      - key: APP_PASSWORD
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: GROQ_API_KEY
+        sync: false
+      - key: ZAI_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false

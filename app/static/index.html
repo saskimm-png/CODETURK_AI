@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#090d18">
+  <meta name="description" content="CODETURK — dört modelin iş birliğiyle akıllı sohbet ve kod geliştirme.">
+  <title>CODETURK — AI çalışma alanı</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <div class="ambient ambient-one"></div><div class="ambient ambient-two"></div>
+  <main class="shell">
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="CODETURK ana sayfa">
+        <span class="brand-mark"><span></span><span></span><span></span><span></span></span>
+        <span>CODE<span class="brand-accent">TURK</span><small>INTELLIGENCE WORKSPACE</small></span>
+      </a>
+      <div class="top-actions">
+        <div class="connection"><i id="connectionDot"></i><span id="connectionText">Bağlantı kontrol ediliyor</span></div>
+        <button id="logoutBtn" class="icon-button hidden" title="Oturumu kapat" aria-label="Oturumu kapat">↗</button>
+      </div>
+    </header>
+
+    <section id="loginView" class="login-wrap">
+      <div class="login-card">
+        <div class="eyebrow"><span class="eyebrow-line"></span> YOUR PRIVATE AI WORKSPACE</div>
+        <div class="login-orb"><div class="orb-core"></div><div class="orb-ring ring-a"></div><div class="orb-ring ring-b"></div></div>
+        <h1>Fikirlerini <em>gerçeğe</em><br> dönüştür.</h1>
+        <p class="muted login-copy">Dört uzman model. Tek akıllı çalışma alanı.</p>
+        <form id="loginForm">
+          <label for="passwordInput">Erişim parolası</label>
+          <div class="password-field"><input id="passwordInput" type="password" placeholder="Parolanı gir" autocomplete="current-password" required><button type="submit" class="primary-button">Çalışma alanına gir <span>→</span></button></div>
+        </form>
+        <p id="loginError" class="error-text" role="alert"></p>
+        <div class="login-foot"><span>●</span> Şifreli oturum · Sunucu tarafında API güvenliği</div>
+      </div>
+    </section>
+
+    <section id="appView" class="workspace hidden">
+      <aside class="sidebar">
+        <div class="side-heading">ÇALIŞMA ALANI</div>
+        <button id="newChatBtn" class="new-chat"><span>＋</span> Yeni sohbet</button>
+        <div class="side-heading model-heading">MODEL EKİBİ <span class="live-dot"></span></div>
+        <div id="modelList" class="model-list">
+          <div class="model-row"><span class="model-icon violet">G</span><span><b>GPT-OSS 120B</b><small>Genel sohbet</small></span><i class="model-state"></i></div>
+          <div class="model-row"><span class="model-icon blue">Q</span><span><b>Qwen 3.8 · 27B</b><small>Kod analisti</small></span><i class="model-state"></i></div>
+          <div class="model-row"><span class="model-icon orange">Z</span><span><b>GLM 4.7 Flash</b><small>Bağımsız denetim</small></span><i class="model-state"></i></div>
+          <div class="model-row"><span class="model-icon green">N</span><span><b>North Mini Code</b><small>Son kod üretimi</small></span><i class="model-state"></i></div>
+        </div>
+        <div class="side-note"><span class="shield">◇</span><div><b>Gizlilik öncelikli</b><small>API anahtarların sunucuda kalır. Sohbet geçmişi bu tarayıcıda tutulur.</small></div></div>
+        <div class="sidebar-bottom"><span class="avatar">CT</span><span><b>CODETURK</b><small>Personal workspace</small></span><span class="version">v1.0</span></div>
+      </aside>
+
+      <section class="chat-panel">
+        <div class="chat-heading">
+          <div><div class="eyebrow"><span class="eyebrow-line"></span> AI DEVELOPMENT STUDIO</div><h2 id="chatTitle">Nasıl yardımcı olabilirim?</h2></div>
+          <div class="mode-select"><span class="mode-pulse"></span><select id="modeSelect" aria-label="Çalışma modu"><option value="auto">Akıllı mod</option><option value="chat">Sohbet</option><option value="code">Kod modu</option></select></div>
+        </div>
+        <div id="welcome" class="welcome">
+          <div class="welcome-symbol"><span>✳</span></div>
+          <h3>Bir fikrin mi var?</h3><p>Ne yapmak istediğini anlat. CODETURK doğru çalışma akışını seçsin.</p>
+          <div class="suggestions">
+            <button class="suggestion" data-prompt="Python ile güvenli bir FastAPI kullanıcı giriş sistemi yaz."><span class="suggestion-icon purple">⌘</span><span><b>Bir uygulama geliştir</b><small>Fikrini çalışan koda dönüştür</small></span><span class="suggestion-arrow">↗</span></button>
+            <button class="suggestion" data-prompt="Yapay zekâ modelleri nasıl birlikte çalışabilir?"><span class="suggestion-icon blue-bg">✧</span><span><b>Bir konuyu keşfet</b><small>Karmaşık konuları sadeleştir</small></span><span class="suggestion-arrow">↗</span></button>
+            <button class="suggestion" data-prompt="Bu web sitesini daha profesyonel hale getirmek için öneriler ver."><span class="suggestion-icon amber">◈</span><span><b>Fikrini iyileştir</b><small>Planla, analiz et, geliştir</small></span><span class="suggestion-arrow">↗</span></button>
+          </div>
+        </div>
+        <div id="messages" class="messages" aria-live="polite"></div>
+        <div id="pipeline" class="pipeline hidden"><div class="pipeline-head"><span class="spinner"></span><span id="pipelineTitle">Model ekibi çalışıyor</span><span class="pipeline-caption">CANLI İŞLEM</span></div><div id="pipelineSteps" class="pipeline-steps"></div></div>
+        <form id="chatForm" class="composer">
+          <textarea id="messageInput" rows="1" placeholder="Bir şey sor veya geliştirmek istediğin fikri anlat..." maxlength="16000"></textarea>
+          <div class="composer-bottom"><span><kbd>Enter</kbd> gönder · <kbd>Shift + Enter</kbd> yeni satır</span><button id="sendBtn" type="submit" class="send-button" aria-label="Mesajı gönder">↑</button></div>
+        </form>
+        <div class="disclaimer">CODETURK yanıtları yapay zekâ tarafından üretilir. Önemli kodları ve işlemleri kullanmadan önce test et.</div>
+      </section>
+    </section>
+  </main>
+  <script src="/static/js/app.js" defer></script>
+</body>
+</html>
