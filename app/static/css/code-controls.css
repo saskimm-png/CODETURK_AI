@@ -1,0 +1,19 @@
+/* CODETURK code-copy, download and attachment controls */
+.code-file-card{margin:13px 0;border:1px solid #2a3851;border-radius:11px;overflow:hidden;background:#080e19;max-width:100%}
+.code-file-header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:9px 11px;background:#121d2e;border-bottom:1px solid #26334a;flex-wrap:wrap}
+.code-file-name{font-size:11px;color:#c4d1e6;font-weight:600;overflow-wrap:anywhere}
+.code-file-actions{display:flex;gap:7px;flex-wrap:wrap}
+.code-action{border:1px solid #35435d;background:#1b2940;color:#dce7f7;border-radius:7px;padding:6px 9px;font:600 10px "DM Sans",sans-serif;cursor:pointer}
+.code-action.primary{background:#7166d9;border-color:#8378f0;color:#fff}
+.code-action:active,.attach-button:active{transform:translateY(1px)}
+.code-file-card pre{margin:0;padding:13px;max-height:560px;overflow:auto;white-space:pre;overflow-wrap:normal;background:#080e19;color:#d7e3f4;font:12px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}
+.code-file-card pre code{white-space:pre;color:inherit}
+.attachment-area{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:6px 0 9px;border-top:1px solid #ffffff0a}
+.attach-button{display:inline-flex;align-items:center;gap:6px;background:#1b2940;border:1px solid #35435d;color:#c7d5e9;border-radius:7px;padding:7px 10px;font:600 10px "DM Sans",sans-serif;cursor:pointer}
+.attachment-list{display:flex;gap:6px;flex-wrap:wrap}
+.attachment-chip{display:inline-flex;align-items:center;gap:7px;max-width:220px;border:1px solid #3b4963;border-radius:7px;background:#19263a;color:#c8d7eb;padding:5px 7px;font-size:10px}
+.attachment-chip span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.attachment-chip button{border:0;background:transparent;color:#ff9da4;font-size:15px;line-height:1;cursor:pointer;padding:0 2px}
+.attachment-hint{font-size:9px;color:#72819a}
+.sent-file-list{font-size:10px;color:#9eb4cd;margin-top:6px}
+@media(max-width:640px){.code-file-header{align-items:flex-start}.code-file-actions{width:100%}.code-action{flex:1}.attachment-hint{width:100%}.code-file-card pre{font-size:11px}}
